@@ -46,8 +46,7 @@ function preload(){
   //gameOverImg = loadImage("gameOver.png");
   restartImg = loadImage("restart.png");
 
-  candyShop = loadImage("candyShop.png");
-
+  
 }
 
 function setup() {
@@ -74,10 +73,6 @@ function setup() {
  //gameOver.visible = false;
   restart.visible = false;
   
-  Shop = createSprite(750,100);
-  Shop.addImage(candyShop);
-  Shop.scale=0.9;
-  
   moneyGroup = new Group();
   obstaclesGroup = new Group();
   money2Group = new Group();
@@ -88,18 +83,18 @@ function setup() {
 function draw() {
   background(groundImage);
   textSize(30);
-  stroke(255,0,255);
+  stroke("black");
   fill("white");
   text("Points: "+ points, 1385,60);
   
   //text("life: "+ life , 500,60);
   textSize(30);
-  stroke(255,0,255);
+  stroke("black");
   fill("white");
   text("Life: "+ life, 1385,90);
   
   textSize(30);
-  stroke(255,0,255);
+  stroke("black");
   fill("white");
   text("Score: "+ score, 1385,30);
 
@@ -156,7 +151,7 @@ function draw() {
     //bgSound.stop();
    // gameOver.visible = true;
   textSize(50);
-  fill(255,0,255);
+  fill("gray");
   text("G A M E  O V E R",560,250);
     restart.visible = true;
     mario.addAnimation("collided", mario_collided);
@@ -211,26 +206,6 @@ function spawnMoney() {
     
     //add each cloud to the group
     moneyGroup.add(money);
-  }
-}
-function spawnMoney2 (){
-  //write code here to spawn the clouds
-  if (frameCount % 60 === 0) {
-    var money2 = createSprite(600,500,40,10);
-    money2.y = Math.round(random(10,60));
-    money2.addImage(money1);
-    money2.scale = 0.1;
-    money2.velocityX = -3;
-    
-     //assign lifetime to the variable
-    money2.lifetime = 200;
-    
-    //adjust the depth
-    money2.depth = mario.depth;
-   mario.depth = mario.depth + 1;
-    
-    //add each cloud to the group
-    money2Group.add(money2);
   }
 }
 
