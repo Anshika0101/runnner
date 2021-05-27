@@ -20,7 +20,7 @@ var index=0;
 
 var obstacle6;
 
-var candyShop;
+var candyShop,Shop;
 
 localStorage["HighestScore"] = 0;
 
@@ -74,8 +74,9 @@ function setup() {
  //gameOver.visible = false;
   restart.visible = false;
   
-  candyShop = createSprite(750,100);
-  candyShop.addImage(candyShop);
+  Shop = createSprite(750,100);
+  Shop.addImage(candyShop);
+  Shop.scale=0.9;
   
   moneyGroup = new Group();
   obstaclesGroup = new Group();
