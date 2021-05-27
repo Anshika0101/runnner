@@ -75,7 +75,6 @@ function setup() {
   
   moneyGroup = new Group();
   obstaclesGroup = new Group();
-  money2Group = new Group();
   
   //score = 0;
 }
@@ -125,7 +124,7 @@ function draw() {
     
     spawnMoney();
     spawnObstacles();
-    spawnMoney2();
+    
 
    if(obstaclesGroup.isTouching(mario)){
         life=life-1;
@@ -139,14 +138,7 @@ function draw() {
         moneySound.play();
         moneyGroup[0].destroy();
     }
-    if(money2Group.isTouching(mario)){
-      points= points + 2;
-      moneySound.play();
-      money2Group[0].destroy();
-    }
-  
-  }
-  
+ 
   else if (gameState === END ) {
     //bgSound.stop();
    // gameOver.visible = true;
@@ -162,7 +154,7 @@ function draw() {
 
     obstaclesGroup.setVelocityXEach(0);
     moneyGroup.setVelocityXEach(0);
-    money2Group.setVelocityXEach(0);
+  
     //change the trex animation
     mario.changeAnimation("collided",mario_collided);
     mario.scale =0.5;
@@ -170,7 +162,7 @@ function draw() {
     //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
     moneyGroup.setLifetimeEach(-1);
-    money2Group.setLifetimeEach(-1);
+
     
     if(mousePressedOver(restart)) {
       reset();
